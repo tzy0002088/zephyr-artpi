@@ -17,8 +17,7 @@
 		zephyr,console = &uart4;
 		zephyr,shell-uart = &uart4;
 		zephyr,sram = &sram0;
-		zephyr,flash = &flash0;
-		spi-flash0 = &w25q64jv;
+		zephyr,flash = &w25q64jv;
 	};
 
 	leds {
@@ -62,6 +61,18 @@
 	status = "okay";
 };
 
+&clk_lsi {
+	status = "okay";
+};
+
+&clk_hsi48 {
+	status = "okay";
+};
+
+&clk_hsi {
+	status = "okay";
+};
+
 &pll {
 	div-m = <5>;
 	mul-n = <192>;
@@ -81,6 +92,10 @@
 	d2ppre1 = <2>;
 	d2ppre2 = <2>;
 	d3ppre = <2>;
+};
+
+&ext_memory {
+	zephyr,memory-attr = <( DT_MEM_ARM(ATTR_MPU_FLASH) )>;
 };
 
 &uart4 {
@@ -143,4 +158,10 @@
 			st,sdram-timing = <2 8 6 6 2 2 2>;
 		};
 	};
+};
+
+zephyr_udc0: &usbotg_fs {
+	status = "okay";
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
 };
