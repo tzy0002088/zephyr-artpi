@@ -33,5 +33,5 @@ west flash
 ## 调试
 west 命令如下：
 ```
-west debugserver
+west debug
 ```
