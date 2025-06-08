@@ -30,6 +30,8 @@ west 命令如下：
 west flash
 ```
 
+>注意：默认在外部 spi flash xip 运行，因此需要提前烧录 boot 到片内 0x08000000 地址处，boot.bin 位于 boards/st/stm32h750_art_pi 目录下
+
 ## 调试
 west 命令如下：
 ```
